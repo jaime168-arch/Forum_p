@@ -3,88 +3,76 @@ function login() {
     const pass = document.getElementById("senha").value;
     const erro = document.getElementById("erro");
 
-    
-    if (user === "" || pass === "") {
+    if (user.trim() === "" || pass.trim() === "") {
         erro.innerText = "Digo... você esqueceu de preencher os campos!";
-        erro.classList.add("text-danger");
+        erro.className = "text-danger fw-bold animate__animated animate__shakeX";
         return;
     }
 
-    
-    if (user === "admin" && pass === "1234") {
-        
-        localStorage.setItem("usuarioAtivo", user);
+    if (user === "chaves" && pass === "1234") {
+        localStorage.setItem("usuarioLogado", user);
         window.location.href = "home.html";
     } else {
         erro.innerText = "Tinha que ser o Chaves de novo! Usuário ou senha incorretos.";
-        erro.classList.add("text-warning");
+        erro.className = "text-warning fw-bold";
+        document.getElementById("senha").value = "";
     }
 }
-
 
 window.onload = function () {
     if (document.getElementById("listaComentarios")) {
         mostrarComentarios();
     }
-}
-
+    console.log("A Vila do Chaves está pronta!");
+};
 
 function adicionarComentario() {
     const nomeInput = document.getElementById("nome");
     const textoInput = document.getElementById("comentario");
 
-    if (nomeInput.value === "" || textoInput.value === "") {
-        alert("Não te dou outra apenas porque... você esqueceu de preencher tudo!");
+    if (nomeInput.value.trim() === "" || textoInput.value.trim() === "") {
+        alert("Não te dou outra apenas porque... você esqueceu de escrever algo!");
         return;
     }
 
-    
-    let listaLocal = JSON.parse(localStorage.getItem("comentariosVila")) || [];
+    let comentariosDB = JSON.parse(localStorage.getItem("comentariosVila")) || [];
 
-    
-    listaLocal.push({
-        autor: nomeInput.value,
+    const novoPost = {
+        nome: nomeInput.value,
         mensagem: textoInput.value,
         data: new Date().toLocaleDateString('pt-BR')
-    });
+    };
 
-    
-    localStorage.setItem("comentariosVila", JSON.stringify(listaLocal));
+    comentariosDB.push(novoPost);
+    localStorage.setItem("comentariosVila", JSON.stringify(comentariosDB));
 
-    
     nomeInput.value = "";
     textoInput.value = "";
 
     mostrarComentarios();
 }
 
-
 function mostrarComentarios() {
-    const listaExibicao = document.getElementById("listaComentarios");
-    if (!listaExibicao) return;
+    const mural = document.getElementById("listaComentarios");
+    if (!mural) return; 
 
-    listaExibicao.innerHTML = "";
+    mural.innerHTML = ""; 
 
-    let comentarios = JSON.parse(localStorage.getItem("comentariosVila")) || [];
+    const dados = JSON.parse(localStorage.getItem("comentariosVila")) || [];
 
-    
-    if (comentarios.length === 0) {
-        listaExibicao.innerHTML = "<p class='text-muted text-center'>A vila está silenciosa... Seja o primeiro a comentar!</p>";
+    if (dados.length === 0) {
+        mural.innerHTML = "<p class='text-center text-muted'>Ainda não há fofocas na vila... Escreva algo!</p>";
         return;
     }
 
-    comentarios.forEach(item => {
-        listaExibicao.innerHTML += `
-            <div class="card mb-3 border-success shadow-sm">
-                <div class="card-body">
-                    <h6 class="card-title fw-bold text-success text-capitalize">
-                        <i class="bi bi-person-fill"></i> ${item.autor}
-                    </h6>
-                    <p class="card-text">"${item.mensagem}"</p>
-                    <div class="text-end">
-                        <small class="text-muted" style="font-size: 0.8rem;">Enviado em: ${item.data}</small>
-                    </div>
+    dados.reverse().forEach(post => {
+        mural.innerHTML += `
+            <div class="card p-3 mb-3 shadow-sm border-start border-success border-4">
+                <div class="d-flex justify-content-between align-items-center mb-2">
+                    <strong class="text-success"><i class="bi bi-person-circle"></i> ${post.nome}</strong>
+                    <span class="badge bg-light text-dark font-monospace" style="font-size: 0.7rem;">${post.data}</span>
                 </div>
+                <p class="mb-0 text-secondary">${post.mensagem}</p>
             </div>
         `;
     });
