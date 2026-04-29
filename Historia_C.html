@@ -2,102 +2,160 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>História do Chaves</title>
+    <title>História do Chaves - Vila Oficial</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <style>
+        .personagem {
+            text-align: center;
+            margin-bottom: 25px;
+            transition: transform 0.3s;
+        }
+        .personagem:hover {
+            transform: translateY(-5px);
+        }
+        .personagem img {
+            width: 120px;
+            height: 120px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 3px solid #198754;
+            margin-bottom: 10px;
+        }
+        .card-historia {
+            border-left: 10px solid #198754;
+            padding: 20px;
+            background-color: #f8f9fa;
+        }
+    </style>
 </head>
 
 <body>
 
-    <nav class="navbar navbar-dark bg-success">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-success shadow-sm">
         <div class="container">
-            <span class="navbar-brand">Fórum Chaves - História</span>
-            <nav class="navbar navbar-dark bg-success">
-                <div>
-                <li class="nav-item"><a class="nav-link" href="home.html">Menu Principal</a></li>
-                <li class="nav-item"><a class="nav-link" href="Historia_C.html">História</a></li>
-                <li class="nav-item"><a class="nav-link" href="forum.html">Fórum</a></li>
+            <span class="navbar-brand fw-bold">Vila do Chaves - História</span>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="home.html">Menu Principal</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="Historia_C.html">História</a></li>
+                    <li class="nav-item"><a class="nav-link" href="forum.html">Fórum</a></li>
+                </ul>
             </div>
         </div>
     </nav>
 
-    <div class="container">
-
-        <div class="row">
-
-            <div class="col-md-6">
-                <div class="card">
-                <h4>História de Chaves</h4>
-                <p>Chaves é uma série mexicana sobre um órfão pobre que vive em uma vila humilde. A trama foca no humor simples e nas confusões cotidianas entre ele, seus amigos (Quico e Chiquinha) e os vizinhos adultos (Seu Madruga, Dona Florinda e Sr. Barriga). É um ícone cultural que usa a comédia para falar de amizade, fome e resiliência.</p>
-              
+    <main class="container mt-5">
+        <div class="row justify-content-center mb-5">
+            <div class="col-md-10">
+                <div class="card card-historia shadow-sm">
+                    <h2 class="fw-bold">A História de Chaves</h2>
+                    <p class="lead">Chaves é uma série mexicana sobre um órfão pobre que vive em uma vila humilde. A trama foca no humor simples e nas confusões cotidianas entre ele, seus amigos (Quico e Chiquinha) e os vizinhos adultos.</p>
+                    <p>É um ícone cultural que usa a comédia para falar de temas profundos como amizade, fome e resiliência, atravessando gerações desde a década de 70.</p>
+                </div>
+            </div>
         </div>
-    </div>
-</main>
 
-<h2 class="text-center">Personagens Relevantes</h2>
+        <hr>
 
-<div class="barra-personagens">
+        <h2 class="text-center my-5">Personagens Relevantes</h2>
+        
+        <div class="row row-cols-2 row-cols-sm-3 row-cols-md-4 row-cols-lg-6 g-4">
+            
+            <div class="col">
+                <div class="personagem">
+                    <img src="assets/p_chaves.png" alt="Chaves">
+                    <p class="fw-bold">Chaves</p>
+                </div>
+            </div>
 
+            <div class="col">
+                <div class="personagem">
+                    <img src="assets/p_quico.png" alt="Quico">
+                    <p class="fw-bold">Quico</p>
+                </div>
+            </div>
 
-    <div class="personagem">
-        <img src="assets/p_chaves.png">
-        <p>Chaves</p>
-    </div>
+            <div class="col">
+                <div class="personagem">
+                    <img src="assets/p_chiquinha.png" alt="Chiquinha">
+                    <p class="fw-bold">Chiquinha</p>
+                </div>
+            </div>
 
-     <div class="personagem">
-        <img src="assets/p_quico.png">
-        <p>Quico</p>
-    </div>
+            <div class="col">
+                <div class="personagem">
+                    <img src="assets/p_SM.png" alt="Seu Madruga">
+                    <p class="fw-bold">Seu Madruga</p>
+                </div>
+            </div>
 
-     <div class="personagem">
-        <img src="assets/p_chiquinha.png">
-        <p>Chiquinha</p>
-    </div>
-    
-     <div class="personagem">
-        <img src="assets/p_SM.png">
-        <p>Seu Madruga</p>
-    </div>
+            <div class="col">
+                <div class="personagem">
+                    <img src="assets/p_DF.png" alt="Dona Florinda">
+                    <p class="fw-bold">Dona Florinda</p>
+                </div>
+            </div>
 
-     <div class="personagem">
-        <img src="assets/p_DF.png">
-        <p>Dona Florinda</p>
-    </div>
+            <div class="col">
+                <div class="personagem">
+                    <img src="assets/p_SB.png" alt="Seu Barriga">
+                    <p class="fw-bold">Seu Barriga</p>
+                </div>
+            </div>
 
-     <div class="personagem">
-        <img src="assets/p_SB.png">
-        <p>Seu Barriga</p>
-    </div>
+            <div class="col">
+                <div class="personagem">
+                    <img src="assets/p_PG.png" alt="Professor Girafales">
+                    <p class="fw-bold">Prof. Girafales</p>
+                </div>
+            </div>
 
-     <div class="personagem">
-        <img src="assets/p_PG.png">
-        <p>Professor Girafales</p>
-    </div>
+            <div class="col">
+                <div class="personagem">
+                    <img src="assets/p_nhonho.png" alt="Nhonho">
+                    <p class="fw-bold">Nhonho</p>
+                </div>
+            </div>
 
-     <div class="personagem">
-        <img src="assets/p_nhonho.png">
-        <p>Nhonho</p>
-    </div>
+            <div class="col">
+                <div class="personagem">
+                    <img src="assets/p_popis.png" alt="Popis">
+                    <p class="fw-bold">Popis</p>
+                </div>
+            </div>
 
-     <div class="personagem">
-        <img src="assets/p_popis.png">
-        <p>Popis</p>
-    </div>
+            <div class="col">
+                <div class="personagem">
+                    <img src="assets/p_JC.png" alt="Jaiminho">
+                    <p class="fw-bold">Jaiminho</p>
+                </div>
+            </div>
 
-     <div class="personagem">
-        <img src="assets/p_JC.png">
-        <p>Jaiminho o carteiro</p>
-    </div>
+            <div class="col">
+                <div class="personagem">
+                    <img src="assets/p_godines.png" alt="Godines">
+                    <p class="fw-bold">Godines</p>
+                </div>
+            </div>
 
-     <div class="personagem">
-        <img src="assets/p_godines.png">
-        <p>Godines</p>
-    </div>
+            <div class="col">
+                <div class="personagem">
+                    <img src="assets/p_DC.png" alt="Dona Clotilde">
+                    <p class="fw-bold">Dona Clotilde</p>
+                </div>
+            </div>
 
+        </div>
+    </main>
 
-     <div class="personagem">
-        <img src="assets/p_DC.png">
-        <p>Dona Clotilde</p>
-    </div>
+    <footer class="text-center py-4 mt-5 bg-light border-top">
+        <p class="text-muted small">© 2026 - Personagens e História da Vila</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
