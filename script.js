@@ -9,7 +9,7 @@ function login() {
         return;
     }
 
-    if (user === "chaves" && pass === "1234") {
+    if (user === "chaves" && pass === "elchavodel8") {
         localStorage.setItem("usuarioLogado", user);
         window.location.href = "home.html";
     } else {
